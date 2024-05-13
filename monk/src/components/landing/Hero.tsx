@@ -5,11 +5,18 @@ const Hero = () => {
         <div className="grid grid-cols-2">
           <div className="flex flex-col justify-center space-y-4 text-whites">
             <h1 className="text-7xl">
-              MONK MODE 
+              MONK MODE
               <br /> BY
-              <br /> IMAN GADZHI
+              <br />
+              <strong>IMAN GADZHI</strong>
             </h1>
-            <p>para</p>
+            <p className="">
+              Formulate Your Own Protocol
+              <br /> To Achieve Your Wildest Goals With Monk Mode
+            </p>
+            <button className="bg-slate-200 w-52 rounded-md">
+              get started
+            </button>
           </div>
           <div>
             <iframe
