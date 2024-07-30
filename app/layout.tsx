@@ -24,8 +24,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <div className="flex justify-between m-2 ">
-            <h1>Monk Mode</h1>
+          <div className="fixed right-0 m-2 ">
             <div>
               <SignedOut>
                 <SignInButton />
