@@ -1,19 +1,15 @@
+import React from "react";
 import Sidebar from "@/components/Sidebar";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-export default function Home() {
+const page = () => {
   return (
-    <main className="flex  ">
+    <main className="flex ">
       <Sidebar />
-      <div className=" p-20  flex flex-col bg-background ">
-        <div>
-          <h1>add habits +</h1>
-        </div>
+      <div className=" p-20  flex flex-col  bg-background ">
         <div className="text-center m-10 px-24">
-          <h1 className="text-4xl">Add Habit </h1>
+          <h1 className="text-4xl">Habit Log</h1>
         </div>
-        <div className="grid grid-flow-row gap-4 justify-center items-center">
-          <div className="grid grid-flow-col gap-4 justify-center items-center">
+        <div className="grid grid-flow-row gap-4 justify-center ">
+          <div className="grid grid-flow-col gap-4 justify-center ">
             <div className=" p-4 rounded-xl bg-primary min-w-80">
               <div className="flex items-center justify-between mt-2">
                 <h1 className="text-lg ">task</h1>
@@ -63,4 +59,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default page;
