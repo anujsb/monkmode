@@ -1,11 +1,21 @@
-import Sidebar from "@/components/Sidebar";
+// import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { SidebarDemo } from "@/components/Sidebar";
+import { cn } from "@/lib/utils";
+
 export default function Home() {
   return (
-    <main className="flex  ">
-      <Sidebar />
-      <div className=" p-20  flex flex-col bg-background ">
+    <div
+      className={cn(
+        " rounded-md flex flex-col md:flex-row flex-1   w-full overflow-hidden",
+        "h-screen" // for your use case, use `h-screen` instead of `h-[60vh]`
+      )}
+    >
+      {" "}
+      {/* <Sidebar /> */}
+      <SidebarDemo />
+      <div className=" flex flex-1 flex-col items-center  bg-background ">
         <div>
           <h1>add habits +</h1>
         </div>
@@ -61,6 +71,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

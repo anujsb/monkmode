@@ -1,11 +1,19 @@
 import React from "react";
-import Sidebar from "@/components/Sidebar";
+// import Sidebar from "@/components/Sidebar";
+import { SidebarDemo } from "@/components/Sidebar";
+import { cn } from "@/lib/utils";
 const page = () => {
   return (
-    <main className="flex ">
-      <Sidebar />
-      <div className=" p-20  flex flex-col  bg-background ">
-        
+    <div
+      className={cn(
+        " rounded-md flex flex-col md:flex-row flex-1   w-full overflow-hidden",
+        "h-screen" // for your use case, use `h-screen` instead of `h-[60vh]`
+      )}
+    >
+      {" "}
+      {/* <Sidebar /> */}
+      <SidebarDemo />
+      <div className=" flex flex-1 flex-col items-center  bg-background ">
         <div className="text-center m-10 px-24">
           <h1 className="text-4xl">Habit Log</h1>
         </div>
@@ -58,7 +66,7 @@ const page = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

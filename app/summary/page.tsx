@@ -1,64 +1,24 @@
-import React from "react";
-import Sidebar from "@/components/Sidebar";
-const page = () => {
+// components/Habits.tsx
+import useSWR from "swr";
+import { fetcher } from "@/lib/helpers";
+
+const summary = () => {
+  const { data, error } = useSWR("app/api/habits/route.ts", fetcher);
+
+  if (error) return <div>Failed to load habits.</div>;
+  if (!data) return <div>Loading...</div>;
+
   return (
-    <main className="flex ">
-      <Sidebar />
-      <div className=" p-20  flex flex-col  bg-background ">
-        <div className="text-center m-10 px-24">
-          <h1 className="text-4xl">Habit Log</h1>
+    <div className="p-4">
+      {data.map((habit) => (
+        <div key={habit._id} className="mb-4 p-4 border rounded">
+          <h2 className="text-xl font-semibold">{habit.title}</h2>
+          <p>{habit.description}</p>
+          <input type="checkbox" checked={habit.completed} readOnly />
         </div>
-        <div className="grid grid-flow-row gap-4 justify-center ">
-          <div className="grid grid-flow-col gap-4 justify-center ">
-            <div className=" p-4 rounded-xl bg-primary min-w-80">
-              <div className="flex items-center justify-between mt-2">
-                <h1 className="text-lg ">task</h1>
-                <div>tick</div>
-              </div>
-              <p className="text-dark-grey mt-1">heatmap</p>
-            </div>
-            <div className=" p-4 rounded-xl bg-primary min-w-80">
-              <div className="flex items-center justify-between mt-2">
-                <h1 className="text-lg ">task</h1>
-                <div>tick</div>
-              </div>
-              <p className="text-dark-grey mt-1">heatmap</p>
-            </div>
-            <div className=" p-4 rounded-xl bg-primary min-w-80">
-              <div className="flex items-center justify-between mt-2">
-                <h1 className="text-lg ">task</h1>
-                <div>tick</div>
-              </div>
-              <p className="text-dark-grey mt-1">heatmap</p>
-            </div>
-          </div>
-          <div className="grid grid-flow-col gap-4 justify-center items-center">
-            <div className=" p-4 rounded-xl bg-primary min-w-80">
-              <div className="flex items-center justify-between mt-2">
-                <h1 className="text-lg ">task</h1>
-                <div>tick</div>
-              </div>
-              <p className="text-dark-grey mt-1">heatmap</p>
-            </div>
-            <div className=" p-4 rounded-xl bg-primary min-w-80">
-              <div className="flex items-center justify-between mt-2">
-                <h1 className="text-lg ">task</h1>
-                <div>tick</div>
-              </div>
-              <p className="text-dark-grey mt-1">heatmap</p>
-            </div>
-            <div className=" p-4 rounded-xl bg-primary min-w-80">
-              <div className="flex items-center justify-between mt-2">
-                <h1 className="text-lg ">task</h1>
-                <div>tick</div>
-              </div>
-              <p className="text-dark-grey mt-1">heatmap</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+      ))}
+    </div>
   );
 };
 
-export default page;
+export default summary;
