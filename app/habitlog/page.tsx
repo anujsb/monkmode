@@ -7,7 +7,7 @@ const page = () => {
     <div
       className={cn(
         " rounded-md flex flex-col md:flex-row flex-1   w-full overflow-hidden",
-        "h-screen" // for your use case, use `h-screen` instead of `h-[60vh]`
+        "h-screen"
       )}
     >
       {" "}
